@@ -1,7 +1,7 @@
 <template lang="pug">
   .navbar-container
     .navbar-list
-      .navbar-list-item(v-for="navItem in navItems") {{ navItem.name }}
+      a.navbar-list-item(v-for="navItem in navItems", v-bind:href="navItem.link") {{ navItem.name }}
 </template>
 
 <script>
@@ -13,9 +13,9 @@ export default {
   data () {
     return {
       navItems: [
-        { name: 'Home' },
-        { name: 'Comics' },
-        { name: 'Videos' },
+        { name: 'Home', link: '/' },
+        { name: 'Comics', link: '/comics' },
+        // { name: 'Videos', link: '/videos' },
       ],
     }
   },
@@ -28,8 +28,22 @@ export default {
 .navbar-list {
   display: flex;
 
+  padding-left: 10%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
   .navbar-list-item {
     padding: 10px 15px;
+    border-radius: 3px;
+
+    text-decoration: none;
+
+    color: black;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
   }
 }
 
