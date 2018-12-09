@@ -14,8 +14,12 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'stylesheet', href: '/3rd/font-awesome/css/all.min.css' }
+		],
+		script: [
+			{ src: '/3rd/moment/moment.min.js' }
+		],
   },
 
   /*
@@ -27,6 +31,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
+		// SCSS file in the project
+		'@/assets/css/global.scss'
   ],
 
   /*
