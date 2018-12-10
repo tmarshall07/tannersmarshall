@@ -15,7 +15,8 @@ module.exports = {
     ],
     link: [
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-			{ rel: 'stylesheet', href: '/3rd/font-awesome/css/all.min.css' }
+			{ rel: 'stylesheet', href: '/3rd/font-awesome/css/all.min.css' },
+			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' },
 		],
 		script: [
 			{ src: '/3rd/moment/moment.min.js' }
@@ -32,7 +33,7 @@ module.exports = {
   */
   css: [
 		// SCSS file in the project
-		'@/assets/css/global.scss'
+		// '@/assets/scss/global.scss'
   ],
 
   /*
@@ -45,7 +46,13 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-  ],
+		[
+			'nuxt-sass-resources-loader', 
+			[
+				'assets/scss/global.scss',
+			]
+		]
+	],
 
   /*
   ** Build configuration

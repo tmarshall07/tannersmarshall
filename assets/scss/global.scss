@@ -1,0 +1,43 @@
+// Greys
+$grey						: #636363;
+
+$light-grey			: lighten($grey, 5%);
+$light-grey-10  : lighten($grey, 10%);
+$light-grey-20  : lighten($grey, 20%);
+$light-grey-30  : lighten($grey, 30%);
+$light-grey-40  : lighten($grey, 40%);
+$light-grey-50  : lighten($grey, 50%);
+
+$dark-grey			: lighten($grey, 10%);
+$dark-grey-10   : darken($grey, 10%);
+$dark-grey-20   : darken($grey, 20%);
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Body
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+// Buttons
+.button {
+	font-size: 16px;
+	background: white;
+	
+	border-radius: 3px;
+	border: 1px solid $grey;
+
+	padding: .75em 1.25em;
+
+	cursor: pointer;
+
+	color: $dark-grey;
+
+	&:hover {
+		background: $light-grey-50;
+	}
+}

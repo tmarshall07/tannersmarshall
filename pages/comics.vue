@@ -3,6 +3,7 @@
     
     .comic-container
       h2.comic-title {{ posts[activePost].name }}
+      p.comic-date
       
       .comic-strip
         .comic-strip-panel
@@ -47,7 +48,12 @@ export default {
     return {
       activePost: 0,
       posts: [
+        { imageId: 'oh-technology', name: 'Oh, technology', date: '11/27/18' },
+        { imageId: 'hawt-sauwce', name: 'Hawt sauwce', date: '11/27/18' },
+        { imageId: 'octopus-foot', name: 'Octopus foot', date: '11/20/18' },
+        { imageId: 'you-too', name: 'You too!', date: '11/13/18' },
         { imageId: 'guilt-trip-machine', name: 'Guilt trip machine', date: '11/06/18' },
+        { imageId: 'name-forgetter-extraordinaire', name: 'Name forgetter extraordinaire', date: '10/30/18' },
         { imageId: 'nature-such-beauty', name: 'Nature such beauty', date: '10/23/18' },
       ],
     }
@@ -79,6 +85,9 @@ export default {
   justify-content: center;
   align-items: center;
 
+  margin-right: 50px;
+  margin-left: 50px;
+
   .comic-strip {
     display: flex;
     max-width: 1200px;
@@ -95,6 +104,15 @@ export default {
 .comic-nav {
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  .comic-date {
+    margin: auto 30px;
+
+    color: $light-grey-10;
+
+    font-size: 16px;  
+  }
 }
 
 </style>

@@ -13,8 +13,8 @@ export default {
   data () {
     return {
       navItems: [
-        { name: 'Home', link: '/' },
-        { name: 'Comics', link: '/comics' },
+        { name: 'home', link: '/' },
+        { name: 'comics', link: '/comics' },
         // { name: 'Videos', link: '/videos' },
       ],
     }
