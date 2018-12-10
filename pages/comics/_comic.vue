@@ -14,13 +14,11 @@
           img(v-bind:src="`/images/comics/${posts[activePost].imageId}/3.jpg`")
 
     .comic-nav
-      button.button.next-button(v-on:click="nextClick", :disabled="isMostRecentPost")
-        | next
-        i.fal.fa-arrow-right-alt
+      .next-button(v-on:click="nextClick", v-if="!isMostRecentPost")
+        img(src='/icons/arrow-left.png')
       .comic-date {{ posts[activePost].date}}
-      button.button.previous-button(v-on:click="previousClick", :disabled="isOldestPost")
-        | prev.
-        i.fal.fa-arrow-left-alt
+      .previous-button(v-on:click="previousClick", v-if="!isOldestPost")
+        img(src='/icons/arrow-right.png')
 </template>
 
 <script>
@@ -41,11 +39,11 @@ function getMostRecent (posts) {
 }
 
 export default {
-	// validate ({ params }) {
+  // validate ({ params }) {
   //   // Must be a number
   //   return /^\d+$/.test(params.id)
-	// }
-	components: {
+  // }
+  components: {
     
   },
   data () {
@@ -69,15 +67,15 @@ export default {
     isOldestPost: function () {
       return this.activePost + 1 >= this.posts.length;
     }
-	},
-	mounted () {
-		// Get comic id from params if it exists and route to that comic
-		const comicId = this.$route.params.comic
-		if (comicId) {
-			const comic = this.posts.find(post => post.id.toString() === comicId);
-			if (comic) this.activePost = (comic.id - 1);
-		} 
-	},
+  },
+  mounted () {
+    // Get comic id from params if it exists and route to that comic
+    const comicId = this.$route.params.comic
+    if (comicId) {
+      const comic = this.posts.find(post => post.id.toString() === comicId);
+      if (comic) this.activePost = (comic.id - 1);
+    } 
+  },
   methods: {
     nextClick: function (event) {
       this.activePost -= 1;
@@ -124,6 +122,15 @@ export default {
     color: $light-grey-10;
 
     font-size: 16px;  
+  }
+
+  .previous-button, .next-button {
+    cursor: pointer;
+    height: 50px;
+
+    img {
+      height: 100%;
+    }
   }
 }
 
