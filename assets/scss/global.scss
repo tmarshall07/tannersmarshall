@@ -35,9 +35,14 @@ body {
 
 	cursor: pointer;
 
-	color: $dark-grey;
+	color: $dark-grey-20;
 
 	&:hover {
-		background: $light-grey-50;
+		background: black;
+		color: white;
+	}
+
+	&:focus {
+		outline: 0;
 	}
 }

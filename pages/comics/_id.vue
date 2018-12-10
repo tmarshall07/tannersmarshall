@@ -41,20 +41,24 @@ function getMostRecent (posts) {
 }
 
 export default {
-  components: {
+	// validate ({ params }) {
+  //   // Must be a number
+  //   return /^\d+$/.test(params.id)
+	// }
+	components: {
     
   },
   data () {
     return {
       activePost: 0,
       posts: [
-        { imageId: 'oh-technology', name: 'Oh, technology', date: '11/27/18' },
-        { imageId: 'hawt-sauwce', name: 'Hawt sauwce', date: '11/27/18' },
-        { imageId: 'octopus-foot', name: 'Octopus foot', date: '11/20/18' },
-        { imageId: 'you-too', name: 'You too!', date: '11/13/18' },
-        { imageId: 'guilt-trip-machine', name: 'Guilt trip machine', date: '11/06/18' },
-        { imageId: 'name-forgetter-extraordinaire', name: 'Name forgetter extraordinaire', date: '10/30/18' },
-        { imageId: 'nature-such-beauty', name: 'Nature such beauty', date: '10/23/18' },
+        { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '11/27/18' },
+        { id: 6, imageId: 'hawt-sauwce', name: 'Hawt sauwce', date: '11/27/18' },
+        { id: 5, imageId: 'octopus-foot', name: 'Octopus foot', date: '11/20/18' },
+        { id: 4, imageId: 'you-too', name: 'You too!', date: '11/13/18' },
+        { id: 3, imageId: 'guilt-trip-machine', name: 'Guilt trip machine', date: '11/06/18' },
+        { id: 2, imageId: 'name-forgetter-extraordinaire', name: 'Name forgetter extraordinaire', date: '10/30/18' },
+        { id: 1, imageId: 'nature-such-beauty', name: 'Nature such beauty', date: '10/23/18' },
       ],
     }
   },
@@ -65,7 +69,14 @@ export default {
     isOldestPost: function () {
       return this.activePost + 1 >= this.posts.length;
     }
-  },
+	},
+	mounted () {
+		const id = this.$route.params.id
+		if (id) {
+			const post = this.posts.find(post => post.id.toString() === id);
+			if (post) this.activePost = (post.id - 1);
+		} 
+	},
   methods: {
     nextClick: function (event) {
       this.activePost -= 1;

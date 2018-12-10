@@ -1,7 +1,7 @@
 <template lang="pug">
   .footer-content
     .footer-container
-      span.footer-name Tanner M.
+      span.footer-name T.
       span.footer-date {{ date }}
 </template>
 
