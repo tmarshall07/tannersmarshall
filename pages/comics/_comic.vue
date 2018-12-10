@@ -71,10 +71,11 @@ export default {
     }
 	},
 	mounted () {
-		const id = this.$route.params.id
-		if (id) {
-			const post = this.posts.find(post => post.id.toString() === id);
-			if (post) this.activePost = (post.id - 1);
+		// Get comic id from params if it exists and route to that comic
+		const comicId = this.$route.params.comic
+		if (comicId) {
+			const comic = this.posts.find(post => post.id.toString() === comicId);
+			if (comic) this.activePost = (comic.id - 1);
 		} 
 	},
   methods: {
