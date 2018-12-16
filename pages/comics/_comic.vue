@@ -4,24 +4,28 @@
     .comic-container
       h2.comic-title {{ posts[activePost].name }}
       p.comic-date
-      
-      .comic-strip
-        .comic-strip-panel
-          img(v-bind:src="`/images/comics/${posts[activePost].imageId}/1.jpg`")
-        .comic-strip-panel
-          img(v-bind:src="`/images/comics/${posts[activePost].imageId}/2.jpg`")
-        .comic-strip-panel
-          img(v-bind:src="`/images/comics/${posts[activePost].imageId}/3.jpg`")
+
+      //- .comic-strip-transition-wrapper
+
+      transition(name="fade")
+        comic-strip(v-if="!postVisible", :post="posts[activePost]")
+
+      //- transition(name="fade")
+      //-   comic-strip(v-if="postVisible", :post="posts[2]")
+
+      //- button.button(@click="postVisible = !postVisible")
 
     .comic-nav
-      .next-button(v-on:click="nextClick", v-if="!isMostRecentPost")
+      .next-button(@click.left="nextClick", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
-      .comic-date {{ posts[activePost].date}}
-      .previous-button(v-on:click="previousClick", v-if="!isOldestPost")
+      .comic-date {{ posts[activePost].date }}
+      .previous-button(@click="previousClick", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
 
 <script>
+
+import ComicStrip from '~/components/comics/ComicStrip';
 
 // Find and return most recent post
 function getMostRecent (posts) {
@@ -39,17 +43,15 @@ function getMostRecent (posts) {
 }
 
 export default {
-  // validate ({ params }) {
-  //   // Must be a number
-  //   return /^\d+$/.test(params.id)
-  // }
   components: {
-    
+    ComicStrip,
   },
   data () {
     return {
+      postVisible: false,
       activePost: 0,
       posts: [
+        { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
         { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '11/27/18' },
         { id: 6, imageId: 'hawt-sauwce', name: 'Hawt sauwce', date: '11/27/18' },
         { id: 5, imageId: 'octopus-foot', name: 'Octopus foot', date: '11/20/18' },
@@ -95,19 +97,16 @@ export default {
   justify-content: center;
   align-items: center;
 
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-left: 15px;
 
-  .comic-strip {
-    display: flex;
-    max-width: 1200px;
+  @media only screen and (min-width: $desktop) {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
 
-    .comic-strip-panel {
-      
-      img {
-        width: 100%;
-      }
-    }
+  .comic-title {
+    // font-family: 'Permanent Marker';
+    margin-bottom: 15px;
   }
 }
 
@@ -118,20 +117,38 @@ export default {
 
   .comic-date {
     margin: auto 30px;
+    width: 75px;
 
     color: $light-grey-10;
 
-    font-size: 16px;  
+    font-size: 18px;  
   }
 
   .previous-button, .next-button {
     cursor: pointer;
     height: 50px;
+    padding: 10px;
 
     img {
       height: 100%;
     }
+
+    &.hidden {
+      visibility: hidden;
+    }
   }
+}
+
+.comic-strip-transition-wrapper {
+  max-width: 1200px;
+  min-width: 900px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 </style>

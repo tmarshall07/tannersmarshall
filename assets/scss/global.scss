@@ -12,6 +12,11 @@ $dark-grey			: lighten($grey, 10%);
 $dark-grey-10   : darken($grey, 10%);
 $dark-grey-20   : darken($grey, 20%);
 
+// Aliases
+$largeDesktop   : "981px";
+$desktop        : "769px";
+$tablet         : "481px";
+
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

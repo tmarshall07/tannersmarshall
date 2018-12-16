@@ -1,7 +1,7 @@
 <template lang="pug">
   .navbar-container
     .navbar-list
-      a.navbar-list-item(v-for="navItem in navItems", v-bind:href="navItem.link") {{ navItem.name }}
+      router-link.navbar-list-item(v-for="navItem in navItems", v-bind:to="navItem.link" :key='navItem.id') {{ navItem.name }}
 </template>
 
 <script>
@@ -13,8 +13,8 @@ export default {
   data () {
     return {
       navItems: [
-        { name: 'home', link: '/' },
-        { name: 'comics', link: '/comics' },
+        { name: 'comics', link: '/comics', id: 2 },
+        { name: 'about', link: '/about', id: 1 },
         // { name: 'Videos', link: '/videos' },
       ],
     }
@@ -25,6 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
 .navbar-list {
   display: flex;
 
@@ -33,6 +35,9 @@ export default {
   padding-bottom: 15px;
 
   .navbar-list-item {
+    font-family: 'Permanent Marker';
+    font-size: 20px;
+
     padding: 10px 15px;
     border-radius: 3px;
 
@@ -40,7 +45,9 @@ export default {
 
     color: black;
 
-    &:hover {
+    margin-right: 15px;
+
+    &:hover, &.nuxt-link-active {
       background: black;
       color: white;
     }
