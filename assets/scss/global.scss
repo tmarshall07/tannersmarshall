@@ -13,9 +13,9 @@ $dark-grey-10   : darken($grey, 10%);
 $dark-grey-20   : darken($grey, 20%);
 
 // Aliases
-$largeDesktop   : "981px";
-$desktop        : "769px";
-$tablet         : "481px";
+$largeDesktop   : "only screen and (min-width: 981px)";
+$desktop        : "only screen and (min-width: 769px)";
+$tablet         : "only screen and (min-width: 481px)";
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;

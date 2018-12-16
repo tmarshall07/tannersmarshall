@@ -38,7 +38,7 @@ export default {
 
     // position: absolute;
 
-    @media only screen and (min-width: $desktop) {
+    @media #{$desktop} {
       display: flex;
       justify-content: center;
     }

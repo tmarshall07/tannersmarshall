@@ -18,9 +18,7 @@ module.exports = {
 			{ rel: 'stylesheet', href: '/3rd/font-awesome/css/all.min.css' },
 			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' },
 		],
-		script: [
-			{ src: '/3rd/moment/moment.min.js' }
-		],
+		script: [],
   },
 
   /*
@@ -33,20 +31,18 @@ module.exports = {
   */
   css: [
 		// SCSS file in the project
-		// '@/assets/scss/global.scss'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-		[
+		[ // For loading global scss stylesheets
 			'nuxt-sass-resources-loader', 
 			[
 				'assets/scss/global.scss',

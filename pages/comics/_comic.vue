@@ -18,7 +18,7 @@
     .comic-nav
       .next-button(@click.left="nextClick", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
-      .comic-date {{ moment(posts[activePost].date, 'MM-DD-YY').format('MM.DD.YY') }}
+      .comic-date {{ formatDate(posts[activePost].date) }}
       .previous-button(@click="previousClick", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
@@ -26,6 +26,7 @@
 <script>
 
 import ComicStrip from '~/components/comics/ComicStrip';
+import * as moment from 'moment';
 
 // Find and return most recent post
 function getMostRecent (posts) {
@@ -50,7 +51,6 @@ export default {
     return {
       postVisible: false,
       activePost: 0,
-      moment,
       posts: [
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
         { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '12/4/18' },
@@ -86,6 +86,9 @@ export default {
     previousClick: function (event) {
       this.activePost += 1;
     },
+    formatDate: function (date) {
+      return moment(date, 'MM-DD-YY').format('MM.DD.YY');
+    },
   },
 }
 </script>
@@ -106,7 +109,7 @@ export default {
 
   margin-left: 15px;
 
-  @media only screen and (min-width: $desktop) {
+  @media #{$desktop} {
     margin-right: 50px;
     margin-left: 50px;
   }
