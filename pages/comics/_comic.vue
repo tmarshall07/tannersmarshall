@@ -18,7 +18,7 @@
     .comic-nav
       .next-button(@click.left="nextClick", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
-      .comic-date {{ posts[activePost].date }}
+      .comic-date {{ moment(posts[activePost].date, 'MM-DD-YY').format('MM.DD.YY') }}
       .previous-button(@click="previousClick", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
@@ -50,9 +50,10 @@ export default {
     return {
       postVisible: false,
       activePost: 0,
+      moment,
       posts: [
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
-        { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '11/27/18' },
+        { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '12/4/18' },
         { id: 6, imageId: 'hawt-sauwce', name: 'Hawt sauwce', date: '11/27/18' },
         { id: 5, imageId: 'octopus-foot', name: 'Octopus foot', date: '11/20/18' },
         { id: 4, imageId: 'you-too', name: 'You too!', date: '11/13/18' },
@@ -91,6 +92,12 @@ export default {
 
 <style lang="scss" scoped>
 
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush');
+
+.comic-title {
+  font-family: 'Caveat Brush';
+}
+
 .comic-container {
   display: flex;
   flex-direction: column;
@@ -105,8 +112,8 @@ export default {
   }
 
   .comic-title {
-    // font-family: 'Permanent Marker';
     margin-bottom: 15px;
+    font-size: 32px;
   }
 }
 
@@ -119,9 +126,9 @@ export default {
     margin: auto 30px;
     width: 75px;
 
-    color: $light-grey-10;
-
-    font-size: 18px;  
+    font-family: 'Permanent Marker';
+    font-size: 20px;
+    text-align: center;
   }
 
   .previous-button, .next-button {
@@ -139,6 +146,7 @@ export default {
   }
 }
 
+// Transitions
 .comic-strip-transition-wrapper {
   max-width: 1200px;
   min-width: 900px;
