@@ -25,7 +25,11 @@ $tablet         : "only screen and (min-width: 481px)";
 
 // Body
 body {
-	font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, li, span {
+  line-height: 1.56em;
 }
 
 // Buttons

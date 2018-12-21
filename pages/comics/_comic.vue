@@ -52,6 +52,7 @@ export default {
       postVisible: false,
       activePost: 0,
       posts: [
+        { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18' },
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
         { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '12/4/18' },
         { id: 6, imageId: 'hawt-sauwce', name: 'Hawt sauwce', date: '11/27/18' },
