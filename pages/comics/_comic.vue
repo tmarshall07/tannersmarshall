@@ -2,13 +2,13 @@
   .comic-page-wrapper
     
     .comic-container
-      h2.comic-title {{ posts[activePost].name }}
+      h2.comic-title {{ activePost.name }}
       p.comic-date
 
       //- .comic-strip-transition-wrapper
 
       transition(name="fade")
-        comic-strip(v-if="!postVisible", :post="posts[activePost]")
+        comic-strip(v-if="!postVisible", :post="activePost")
 
       //- transition(name="fade")
       //-   comic-strip(v-if="postVisible", :post="posts[2]")
@@ -18,7 +18,7 @@
     .comic-nav
       .next-button(@click.left="nextClick", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
-      .comic-date {{ formatDate(posts[activePost].date) }}
+      .comic-date {{ formatDate(activePost.date) }}
       .previous-button(@click="previousClick", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
@@ -50,7 +50,7 @@ export default {
   data () {
     return {
       postVisible: false,
-      activePost: 0,
+      activePostId: 1,
       posts: [
         { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18' },
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
@@ -66,26 +66,29 @@ export default {
   },
   computed: {
     isMostRecentPost: function () {
-      return this.activePost - 1 < 0;
+      return this.activePostId - 1 < 0;
     },
     isOldestPost: function () {
-      return this.activePost + 1 >= this.posts.length;
-    }
+      return this.activePostId + 1 >= this.posts.length;
+    },
+    activePost: function () {
+      return this.posts.find(post => post.id.toString() === this.activePostId.toString());
+    },
   },
   mounted () {
     // Get comic id from params if it exists and route to that comic
     const comicId = this.$route.params.comic
     if (comicId) {
       const comic = this.posts.find(post => post.id.toString() === comicId);
-      if (comic) this.activePost = (comic.id - 1);
-    } 
+      if (comic) this.activePostId = (comic.id - 1);
+    }
   },
   methods: {
     nextClick: function (event) {
-      this.activePost -= 1;
+      this.activePostId -= 1;
     },
     previousClick: function (event) {
-      this.activePost += 1;
+      this.activePostId += 1;
     },
     formatDate: function (date) {
       return moment(date, 'MM-DD-YY').format('MM.DD.YY');

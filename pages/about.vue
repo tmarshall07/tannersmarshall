@@ -6,7 +6,6 @@
     .profile-content-container
       h2.profile-content-header Hi there
       p.profile-content-body Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      
     
 </template>
 
@@ -34,10 +33,15 @@ export default {
   }
 
   .profile-image {
-    width: 300px;
+    height: 300px;
+    border: 4px solid black;
+    border-radius: 100%;
+    overflow: hidden;
+
+    margin: auto 50px;
 
     img {
-      width: 100%;
+      height: 100%;
     }
   }
 
