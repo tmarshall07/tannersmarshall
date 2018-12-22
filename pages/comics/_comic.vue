@@ -28,21 +28,6 @@
 import ComicStrip from '~/components/comics/ComicStrip';
 import * as moment from 'moment';
 
-// Find and return most recent post
-function getMostRecent (posts) {
-  let mostRecentPost = posts[0];
-  let mostRecentPostDate = moment(mostRecentPost.date);
-
-  for (let i = 0; i < posts.length; i += 1) {
-    const post = moment(posts[i].date);
-    if (post.diff(mostRecentPostDate, 'days') > 0) {
-      mostRecentPost = posts[i];
-    }
-  }
-
-  return mostRecentPost;
-}
-
 export default {
   components: {
     ComicStrip,
@@ -51,6 +36,7 @@ export default {
     return {
       postVisible: false,
       activePostId: 1,
+      test: null,
       posts: [
         { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18' },
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
@@ -66,33 +52,48 @@ export default {
   },
   computed: {
     isMostRecentPost: function () {
-      return this.activePostId - 1 < 0;
+      return this.activePostId === this.posts.length;
     },
     isOldestPost: function () {
-      return this.activePostId + 1 >= this.posts.length;
+      return this.activePostId === 1;
     },
     activePost: function () {
       return this.posts.find(post => post.id.toString() === this.activePostId.toString());
     },
   },
-  mounted () {
+  created () {
     // Get comic id from params if it exists and route to that comic
-    const comicId = this.$route.params.comic
-    if (comicId) {
-      const comic = this.posts.find(post => post.id.toString() === comicId);
-      if (comic) this.activePostId = (comic.id - 1);
+    const post = this.posts.find(p => p.id.toString() === this.$route.params.comic);
+    // If it exists, set active post as the comic, else set to most recent post
+    if (post) {
+      this.activePostId = post.id;
+    } else {
+      this.activePostId = this.getMostRecent().id;
     }
   },
   methods: {
     nextClick: function (event) {
-      this.activePostId -= 1;
+      this.activePostId += 1;
     },
     previousClick: function (event) {
-      this.activePostId += 1;
+      this.activePostId -= 1;
     },
     formatDate: function (date) {
       return moment(date, 'MM-DD-YY').format('MM.DD.YY');
     },
+    getMostRecent: function () {
+      let mostRecentPost = this.posts[0];
+      let mostRecentPostDate = moment(mostRecentPost.date);
+
+      for (let i = 0; i < this.posts.length; i += 1) {
+        const post = moment(this.posts[i].date);
+        if (post.diff(mostRecentPostDate, 'days') > 0) {
+          mostRecentPost = this.posts[i];
+        }
+      }
+
+      return mostRecentPost;
+    }
   },
 }
 </script>
