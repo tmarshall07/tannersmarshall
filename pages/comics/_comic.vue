@@ -14,10 +14,10 @@
       //- button.button(@click="postVisible = !postVisible")
 
     .comic-nav
-      .next-button(@click.left="nextClick", :class="{ hidden: isMostRecentPost }")
+      nuxt-link.next-button(:to="`/comics/${activePostId + 1}`", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
       .comic-date {{ formatDate(activePost.date) }}
-      .previous-button(@click="previousClick", :class="{ hidden: isOldestPost }")
+      nuxt-link.previous-button(:to="`/comics/${activePostId - 1}`", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
 
@@ -70,12 +70,6 @@ export default {
     }
   },
   methods: {
-    nextClick: function (event) {
-      this.activePostId += 1;
-    },
-    previousClick: function (event) {
-      this.activePostId -= 1;
-    },
     formatDate: function (date) {
       return moment(date, 'MM-DD-YY').format('MM.DD.YY');
     },
