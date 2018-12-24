@@ -1,6 +1,4 @@
 <template lang="pug">
-  section.container
-    h1 Hello world
 </template>
 
 <script>
@@ -8,7 +6,11 @@
 export default {
   components: {
 
-  }
+  },
+  // Redirect to /comics
+  asyncData ({ redirect }) {
+    return redirect('/comics')
+  },
 }
 </script>
 

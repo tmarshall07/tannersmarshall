@@ -7,13 +7,18 @@
         img(v-bind:src="`/images/comics/${post.imageId}/2.jpg`")
       .comic-strip-panel
         img(v-bind:src="`/images/comics/${post.imageId}/3.jpg`")
+  
+    //- panel-modal(show='panelModalVisible', :post='post')
+
 </template>
 
 <script>
 
+import PanelModal from '~/components/comics/PanelModal';
+
 export default {
   components: {
-
+    PanelModal,
   },
   props: {
     post: {

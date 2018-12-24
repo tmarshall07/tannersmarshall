@@ -5,8 +5,6 @@
       h2.comic-title {{ activePost.name }}
       p.comic-date
 
-      //- .comic-strip-transition-wrapper
-
       transition(name="fade")
         comic-strip(v-if="!postVisible", :post="activePost")
 
@@ -35,8 +33,8 @@ export default {
   data () {
     return {
       postVisible: false,
+      panelModalVisible: true,
       activePostId: 1,
-      test: null,
       posts: [
         { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18' },
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
