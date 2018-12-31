@@ -5,7 +5,7 @@
         img(src='/images/avatar/avatar.jpg')
     .profile-content-container
       h2.profile-content-header Hi there
-      p.profile-content-body Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      p.profile-content-body I'm Tanner, and this is my website! Wow, you probably already knew those things. Anyway, the only thing really here so far is my weekly <a href='/comics'>webcomic</a>. But check back periodically for new things!
     
 </template>
 

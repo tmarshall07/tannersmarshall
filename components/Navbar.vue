@@ -25,8 +25,6 @@ export default {
 
 <style lang="scss" scoped>
 
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
-
 .navbar-list {
   display: flex;
 

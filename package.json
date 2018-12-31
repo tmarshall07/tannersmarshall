@@ -23,7 +23,7 @@
     "babel-eslint": "^8.2.1",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^4.0.0",
+    "eslint-plugin-vue": "^4.7.1",
     "node-sass": "^4.10.0",
     "nodemon": "^1.11.0",
     "nuxt-sass-resources-loader": "^2.0.5",

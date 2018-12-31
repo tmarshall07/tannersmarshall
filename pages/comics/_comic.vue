@@ -68,6 +68,7 @@ export default {
       this.activePostId = post.id;
     } else {
       this.activePostId = this.getMostRecent().id;
+      console.log('hello');
     }
   },
   methods: {
@@ -100,8 +101,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-@import url('https://fonts.googleapis.com/css?family=Caveat+Brush');
 
 .comic-title {
   font-family: 'Caveat Brush';
