@@ -3,7 +3,7 @@
     
     .comic-container
       h2.comic-title {{ activePost.name }}
-      p.comic-date
+      .comic-date {{ formatDate(activePost.date) }}
 
       transition(name="fade")
         comic-strip(v-if="!postVisible", :post="activePost")
@@ -14,10 +14,10 @@
       //- button.button(@click="postVisible = !postVisible")
 
     .comic-nav
-      nuxt-link.next-button(:to="`/comics/${activePostId + 1}`", :class="{ hidden: isMostRecentPost }")
+      a.next-button(@click="changeComic(activePostId + 1)", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
-      .comic-date {{ formatDate(activePost.date) }}
-      nuxt-link.previous-button(:to="`/comics/${activePostId - 1}`", :class="{ hidden: isOldestPost }")
+      button.button.random-button(@click="randomComicClick") random
+      a.previous-button(@click="changeComic(activePostId - 1)", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
 
@@ -36,6 +36,7 @@ export default {
       panelModalVisible: true,
       activePostId: 1,
       posts: [
+        { id: 10, imageId: 'middle-seats', name: 'Middle seats', date: '12/28/18' },
         { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18' },
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },
         { id: 7, imageId: 'oh-technology', name: 'Oh, technology', date: '12/4/18' },
@@ -73,19 +74,27 @@ export default {
     formatDate: function (date) {
       return moment(date, 'MM-DD-YY').format('MM.DD.YY');
     },
+    changeComic: function (comicId) {
+      this.activePostId = comicId;
+      window.history.pushState({ id: comicId }, '', `/comics/${comicId}`);
+    },
     getMostRecent: function () {
       let mostRecentPost = this.posts[0];
-      let mostRecentPostDate = moment(mostRecentPost.date);
+      let mostRecentPostDate = moment(mostRecentPost.date, 'MM-DD-YY');
 
       for (let i = 0; i < this.posts.length; i += 1) {
-        const post = moment(this.posts[i].date);
+        const post = moment(this.posts[i].date, 'MM-DD-YY');
         if (post.diff(mostRecentPostDate, 'days') > 0) {
           mostRecentPost = this.posts[i];
         }
       }
 
       return mostRecentPost;
-    }
+    },
+    randomComicClick: function () {
+      // Randomly select a new comicId and update
+      this.changeComic(Math.floor(Math.random() * this.posts.length) + 1);
+    },
   },
 }
 </script>
@@ -112,24 +121,24 @@ export default {
   }
 
   .comic-title {
-    margin-bottom: 15px;
     font-size: 32px;
   }
+}
+
+.comic-date {
+  margin: auto 30px;
+  margin-bottom: 10px;
+  width: 75px;
+
+  font-family: 'Permanent Marker';
+  font-size: 18px;
+  text-align: center;
 }
 
 .comic-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  .comic-date {
-    margin: auto 30px;
-    width: 75px;
-
-    font-family: 'Permanent Marker';
-    font-size: 20px;
-    text-align: center;
-  }
 
   .previous-button, .next-button {
     cursor: pointer;
