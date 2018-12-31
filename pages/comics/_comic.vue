@@ -142,7 +142,7 @@ export default {
 
   .previous-button, .next-button {
     cursor: pointer;
-    height: 50px;
+    height: 75px;
     padding: 10px;
 
     img {
@@ -151,6 +151,30 @@ export default {
 
     &.hidden {
       visibility: hidden;
+    }
+  }
+
+  .random-button {
+    border: 2px solid black;
+
+    margin-left: 30px;
+    margin-right: 30px;
+    
+    font-size: 32px;
+    font-family: 'Caveat Brush';
+
+    padding: .25em .5em;
+  }
+
+  @media #{$desktop} {   
+    .next-button, .previous-button {
+      height: 50px;
+    }
+    
+    .random-button {
+      font-size: 24px;
+      margin-left: 15px;
+      margin-right: 15px;
     }
   }
 }
