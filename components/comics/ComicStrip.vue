@@ -41,8 +41,6 @@ export default {
     width: 100%;
     overflow: scroll;
 
-    // position: absolute;
-
     @media #{$desktop} {
       display: flex;
       justify-content: center;
@@ -50,8 +48,15 @@ export default {
 
     .comic-strip {
       display: flex;
-      max-width: 1200px;
       min-width: 900px;
+
+      @media #{$tablet} {
+        min-width: 1500px;
+      }
+
+      @media #{$desktop} {
+        min-width: unset;
+      }
 
       .comic-strip-panel {
         

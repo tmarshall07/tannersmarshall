@@ -14,10 +14,10 @@
       //- button.button(@click="postVisible = !postVisible")
 
     .comic-nav
-      a.next-button(@click="changeComic(activePostId + 1)", :class="{ hidden: isMostRecentPost }")
+      .next-button(@click="nextPost", :class="{ hidden: isMostRecentPost }")
         img(src='/icons/arrow-left.png')
       button.button.random-button(@click="randomComicClick") random
-      a.previous-button(@click="changeComic(activePostId - 1)", :class="{ hidden: isOldestPost }")
+      .previous-button(@click="previousPost", :class="{ hidden: isOldestPost }")
         img(src='/icons/arrow-right.png')
 </template>
 
@@ -68,10 +68,23 @@ export default {
       this.activePostId = post.id;
     } else {
       this.activePostId = this.getMostRecent().id;
-      console.log('hello');
     }
   },
+  mounted () {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.nextPost();
+      else if (e.key === 'ArrowRight') this.previousPost();
+    });
+  },
   methods: {
+    // Cycle to next post
+    nextPost: function () {
+      if (!this.isMostRecentPost) this.changeComic(this.activePostId + 1);
+    },
+    // Cycle to previous post
+    previousPost: function () {
+      if (!this.isOldestPost) this.changeComic(this.activePostId - 1);
+    },
     formatDate: function (date) {
       return moment(date, 'MM-DD-YY').format('MM.DD.YY');
     },

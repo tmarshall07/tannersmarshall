@@ -46,6 +46,7 @@ export default {
     margin-right: 15px;
 
     &:hover, &.nuxt-link-active {
+      background: none;
       background-image: url('/nav/nav-item-background.png');
       background-size: contain;
       background-repeat: no-repeat;

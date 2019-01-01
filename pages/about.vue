@@ -5,7 +5,10 @@
         img(src='/images/avatar/avatar.jpg')
     .profile-content-container
       h2.profile-content-header Hi there
-      p.profile-content-body I'm Tanner, and this is my website! Wow, you probably already knew those things. Anyway, the only thing really here so far is my weekly <a href='/comics'>webcomic</a>. But check back periodically for new things!
+      p I'm Tanner, and this is my website! Wow, you probably already knew those things. Anyway, the only thing really here so far is my weekly <a href='/comics'>webcomic</a>. But check back periodically for new things!
+      
+      h3 General stuff
+      p I'm a native Midwesterner—born and raised Minnesotan—but I've also lived in Madison, Wisconsin, Portland, Oregon, and Vancouver, BC, Canada. With our most recent settlement being built in Baltimore, Maryland.
     
 </template>
 
@@ -47,6 +50,11 @@ export default {
 
   .profile-content-container {
     max-width: 400px;
+
+    h3 {
+      margin-bottom: 15px;
+      margin-top: 30px;
+    }
 
     .profile-content-header {
       font-size: 24px;
