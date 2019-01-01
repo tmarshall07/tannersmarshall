@@ -2,13 +2,14 @@
   .about-page-wrapper
     .profile-image-container
       .profile-image
-        img(src='/images/avatar/avatar.jpg')
+        img(src='/images/about/waving.png')
     .profile-content-container
-      h2.profile-content-header Hi there
-      p I'm Tanner, and this is my website! Wow, you probably already knew those things. Anyway, the only thing really here so far is my weekly <a href='/comics'>webcomic</a>. But check back periodically for new things!
-      
-      h3 General stuff
-      p I'm a native Midwesterner—born and raised Minnesotan—but I've also lived in Madison, Wisconsin, Portland, Oregon, and Vancouver, BC, Canada. With our most recent settlement being built in Baltimore, Maryland.
+      .text-section
+        h1.profile-content-header Hi there
+        p I'm Tanner, and this is my website! Wow, you probably already knew those things. Anyway, this is where I publish my weekly <a href='/comics'>webcomics</a>, as well as other stuffs and nonsense.
+      .text-section
+        h2 General stuff
+        p I'm a native Minnesotan at heart, but I've also been in transience for the past 10-ish years, most recently settling in Baltimore, Maryland. By day, I draw and code all sorts of things for <a class='osmosis-link' href='http://www.osmosis.org' target='_blank'>Osmosis</a>, a medical education company trying to change the way we learn medicine.
     
 </template>
 
@@ -36,10 +37,7 @@ export default {
   }
 
   .profile-image {
-    height: 300px;
-    border: 4px solid black;
-    border-radius: 100%;
-    overflow: hidden;
+    height: 400px;
 
     margin: auto 50px;
 
@@ -50,17 +48,10 @@ export default {
 
   .profile-content-container {
     max-width: 400px;
+  }
 
-    h3 {
-      margin-bottom: 15px;
-      margin-top: 30px;
-    }
-
-    .profile-content-header {
-      font-size: 24px;
-
-      margin-bottom: 20px;
-    }
+  .text-section {
+    margin-bottom: 20px;
   }
 }
 

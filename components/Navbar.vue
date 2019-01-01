@@ -33,8 +33,8 @@ export default {
   padding-bottom: 15px;
 
   .navbar-list-item {
-    font-family: 'Permanent Marker';
-    font-size: 20px;
+    font-family: 'Nanum Pen Script';
+    font-size: 24px;
 
     padding: 10px 15px;
     border-radius: 3px;

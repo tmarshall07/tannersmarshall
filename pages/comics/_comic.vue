@@ -116,7 +116,8 @@ export default {
 <style lang="scss" scoped>
 
 .comic-title {
-  font-family: 'Caveat Brush';
+  font-family: 'Nanum Pen Script';
+  margin-bottom: 0;
 }
 
 .comic-container {
@@ -142,8 +143,8 @@ export default {
   margin-bottom: 10px;
   width: 75px;
 
-  font-family: 'Permanent Marker';
-  font-size: 18px;
+  font-family: 'Nanum Pen Script';
+  font-size: 24px;
   text-align: center;
 }
 
@@ -173,7 +174,7 @@ export default {
     margin-right: 30px;
     
     font-size: 32px;
-    font-family: 'Caveat Brush';
+    font-family: 'Nanum Pen Script';
 
     padding: .25em .5em;
   }
