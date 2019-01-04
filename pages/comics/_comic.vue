@@ -36,6 +36,7 @@ export default {
       panelModalVisible: true,
       activePostId: 1,
       posts: [
+        { id: 11, imageId: 'camping-creeps', name: 'Psst, you still awake?', date: '01/04/19' },
         { id: 10, imageId: 'middle-seats', name: 'Middle seats', date: '12/28/18' },
         { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18' },
         { id: 8, imageId: 'whats-for-breakfast', name: 'But what\'s for breakfast?', date: '12/13/18' },

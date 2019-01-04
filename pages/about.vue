@@ -9,7 +9,7 @@
         p I'm Tanner, and this is my website! Wow, you probably already knew those things. Anyway, this is where I publish my weekly <a href='/comics'>webcomics</a>, as well as other stuffs and nonsense.
       .text-section
         h2 General stuff
-        p I'm a native Minnesotan at heart, but I've also been in transience for the past 10-ish years, most recently settling in Baltimore, Maryland. By day, I draw and code all sorts of things for <a class='osmosis-link' href='http://www.osmosis.org' target='_blank'>Osmosis</a>, a medical education company trying to change the way we learn medicine.
+        p I'm a native Minnesotan at heart, but I've also been in transience for the past 10-ish years, most recently settling in Baltimore, Maryland. By day, I draw cartoon organs, write code, record voiceovers, and do other odds and ends for <a class='osmosis-link' href='http://www.osmosis.org' target='_blank'>Osmosis</a>, a medical education company trying to change the way we learn medicine!
     
 </template>
 
@@ -26,12 +26,16 @@ export default {
 
 .about-page-wrapper {
   display: flex;
+  flex-direction: column;
+  
   margin-right: 10px;
   margin-left: 10px;
 
   justify-content: center;
+  align-items: center;
 
   @media #{$desktop} {
+    flex-direction: row;
     margin-left: 50px;
     margin-right: 50px;
   }
