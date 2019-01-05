@@ -1,14 +1,12 @@
 <template lang="pug">
   .comic-strip-container
-    .comic-strip
+    .comic-strip(:title="post.title")
       .comic-strip-panel
-        img(v-bind:src="`/images/comics/${post.imageId}/1.jpg`")
+        img(:src="`/images/comics/${post.imageId}/1.jpg`")
       .comic-strip-panel
-        img(v-bind:src="`/images/comics/${post.imageId}/2.jpg`")
+        img(:src="`/images/comics/${post.imageId}/2.jpg`")
       .comic-strip-panel
-        img(v-bind:src="`/images/comics/${post.imageId}/3.jpg`")
-  
-    //- panel-modal(show='panelModalVisible', :post='post')
+        img(:src="`/images/comics/${post.imageId}/3.jpg`")
 
 </template>
 
