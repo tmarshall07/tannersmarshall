@@ -36,6 +36,7 @@ export default {
       panelModalVisible: true,
       activePostId: 1,
       posts: [
+        { id: 12, imageId: 'wet-hands', name: 'Air drying', date: '01/11/19', title: 'I was just in the bathroom...It\'s water...from washing my hands. It\'s not pee.' },
         { id: 11, imageId: 'camping-creeps', name: 'Psst, you still awake?', date: '01/04/19', title: 'I\'ts all fun and games until the sun goes down.' },
         { id: 10, imageId: 'middle-seats', name: 'Middle seats', date: '12/28/18', title: 'Umm. Excuse me. You\'re elbow is in my ribcage. Thanks.' },
         { id: 9, imageId: 'all-the-flavors', name: 'All the flavors', date: '12/21/18', title: 'Oh, and also a scoop of the peanut butter chocolate swirl please.' },
