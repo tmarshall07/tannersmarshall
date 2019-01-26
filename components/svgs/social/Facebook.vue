@@ -38,10 +38,8 @@ export default {
 
 <style lang="scss" scoped>
 
-svg:hover {
-  .background {
-    fill: rgb(66,103,178);
-  }
+.background {
+  fill: rgb(66,103,178);
 }
 
 </style>
