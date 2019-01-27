@@ -173,6 +173,7 @@ export default {
 
   .random-button {
     border: 2px solid black;
+    border-bottom: 5px solid black;
 
     margin-left: 30px;
     margin-right: 30px;
@@ -181,6 +182,16 @@ export default {
     font-family: 'Nanum Pen Script';
 
     padding: .25em .5em;
+
+    &:hover, &:active, &:focus {
+      background: transparent;
+      color: black;
+    }
+
+    &:active {
+      border-bottom: 2px solid black;
+      transform: translateY(2px);
+    }
   }
 
   @media #{$desktop} {   
@@ -192,6 +203,10 @@ export default {
       font-size: 24px;
       margin-left: 15px;
       margin-right: 15px;
+
+      &:active {
+        transform: translateY(1px);
+      }
     }
   }
 }
