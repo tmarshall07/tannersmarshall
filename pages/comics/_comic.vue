@@ -36,6 +36,7 @@ export default {
       panelModalVisible: true,
       activePostId: 1,
       posts: [
+        { id: 15, imageId: 'trail-runners', name: 'Trail runners', date: '02/02/19', title: 'But like, how?' },
         { id: 14, imageId: 'game-night', name: 'Game night', date: '01/25/19', title: 'Just wait \'til we get to the section on trading!' },
         { id: 13, imageId: 'maybe-next-time', name: 'Maybe next time', date: '01/18/19', title: 'But from far away it seemed so small.' },
         { id: 12, imageId: 'wet-hands', name: 'Air drying', date: '01/11/19', title: 'I was just in the bathroom...It\'s water...from washing my hands. It\'s not pee.' },
