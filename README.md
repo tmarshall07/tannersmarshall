@@ -1,6 +1,6 @@
 # tanners-website
 
-> My bedazzling Nuxt.js project
+> Tanner's webcomics of stuff and nonsense.
 
 ## Build Setup
 
