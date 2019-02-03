@@ -1,7 +1,7 @@
 {
-  "name": "tanners-website",
-  "version": "1.0.0",
-  "description": "My bedazzling Nuxt.js project",
+  "name": "tanners-webcomics",
+  "version": "1.1.0",
+  "description": "Webcomics about stuff and nonsense.",
   "author": "Tanner Marshall",
   "private": true,
   "scripts": {

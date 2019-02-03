@@ -4,9 +4,8 @@
       .footer-social
         a.footer-social-instagram.social-icon(href="https://www.instagram.com/tanner.s.marshall/" target="_blank")
           instagram
-        //- .fb-share-button(data-href="https://developers.facebook.com/docs/plugins/")
-        //-   a.footer-social-facebook.social-icon(href="https://tannersmarshall.com/comics/5", target="_blank")
-        //-     facebook
+        a.footer-social-facebook.social-icon(@click="shareFb")
+          facebook
         .footer-social-linked-in.social-icon
       .footer-info
         span.footer-name T.
@@ -15,12 +14,12 @@
 
 <script>
 
-// import Facebook from '~/components/svgs/social/Facebook';
+import Facebook from '~/components/svgs/social/Facebook';
 import Instagram from '~/components/svgs/social/Instagram';
 
 export default {
   components: {
-    // Facebook,
+    Facebook,
     Instagram,
   },
   data () {
@@ -28,6 +27,34 @@ export default {
       date: new Date().getFullYear(),
     }
   },
+  mounted() {
+    window.fbAsyncInit = function() {
+      FB.init({ // eslint-disable-line no-undef
+        appId            : '520571251783732',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v3.2'
+      });
+    };
+    
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  },
+  methods: {
+    shareFb() {
+      if (FB) { // eslint-disable-line no-undef
+        FB.ui({ // eslint-disable-line no-undef
+          method: 'share',
+          href: `tannersmarshall.com/${window.location.pathname}`,
+        }, function(){});
+      }
+    },
+  }
 }
 
 </script>
