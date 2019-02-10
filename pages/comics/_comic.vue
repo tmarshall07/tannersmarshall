@@ -36,6 +36,7 @@ export default {
       panelModalVisible: true,
       activePostId: 1,
       posts: [
+        { id: 16, imageId: 'convergent-evolution', name: 'Convergent evolution', date: '02/10/19', title: 'Fine, if you get the bun then I get flannels.' },
         { id: 15, imageId: 'trail-runners', name: 'Trail runners', date: '02/02/19', title: 'But like, how?' },
         { id: 14, imageId: 'game-night', name: 'Game night', date: '01/25/19', title: 'Just wait \'til we get to the section on trading!' },
         { id: 13, imageId: 'maybe-next-time', name: 'Maybe next time', date: '01/18/19', title: 'But from far away it seemed so small.' },
