@@ -12,12 +12,6 @@ app.set('port', port)
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
-// Ping the site every 5 minutes (300000 ms) to prevent Dyno from idling
-const http = require("http");
-setInterval(() => {
-    http.get("tannersmarshall.com");
-}, 300000);
-
 async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)

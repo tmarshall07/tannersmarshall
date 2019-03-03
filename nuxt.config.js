@@ -48,7 +48,14 @@ module.exports = {
 				'assets/scss/global.scss',
 			]
 		]
-	],
+  ],
+
+  /*
+  ** Server middleware
+  */
+  serverMiddleware: [
+    '~/api/pinger'
+  ],
 
   /*
   ** Build configuration
