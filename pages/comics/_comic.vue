@@ -36,6 +36,7 @@ export default {
       panelModalVisible: true,
       activePostId: 1,
       posts: [
+        { id: 17, imageId: 'grocery-run', name: 'Grocery run', date: '03/03/19', title: 'All right, we just need beans...and onions, oh let\'s get some garlic...Can\'t forget about milk!' },
         { id: 16, imageId: 'convergent-evolution', name: 'Convergent evolution', date: '02/10/19', title: 'Fine, if you get the bun then I get flannels.' },
         { id: 15, imageId: 'trail-runners', name: 'Trail runners', date: '02/02/19', title: 'But like, how?' },
         { id: 14, imageId: 'game-night', name: 'Game night', date: '01/25/19', title: 'Just wait \'til we get to the section on trading!' },
