@@ -22,7 +22,7 @@ export default {
     }
   },
   created() {
-    this.posts = posts;
+    this.posts = _.sortBy(posts, 'id').reverse();
   },
   methods: {
     goToComic(id) {
