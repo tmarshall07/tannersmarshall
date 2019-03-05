@@ -1,4 +1,4 @@
-// Ping the site every 5 minutes (300000 ms) to prevent Dyno from idling
+// Ping the site every 15 minutes (900000 ms) to prevent Dyno from idling (idles at 30 min)
 const http = require("http");
 
 export default function (req, res, next) {
@@ -7,7 +7,7 @@ export default function (req, res, next) {
       hostname: 'tannersmarshall.com',
       path: '/',
     });
-  }, 300000);
+  }, 900000);
 
   next();
 }
