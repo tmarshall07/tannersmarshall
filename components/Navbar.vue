@@ -13,8 +13,9 @@ export default {
   data () {
     return {
       navItems: [
-        { name: 'comics', link: '/comics', id: 2 },
-        { name: 'about', link: '/about', id: 1 },
+        { name: 'comics', link: '/comics', id: 1 },
+        { name: 'about', link: '/about', id: 2 },
+        { name: 'archive', link: '/archive', id: 3},
         // { name: 'Videos', link: '/videos' },
       ],
     }
