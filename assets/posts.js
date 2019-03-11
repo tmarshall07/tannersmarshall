@@ -115,6 +115,13 @@ export const posts = [
     imageId: 'grocery-run',
     name: 'Grocery run',
     date: '03/03/19',
-    title: 'All right, we just need beans...and onions, oh let\'s get some garlic...Can\'t forget about milk!'
+    title: 'All right, we just need beans...and onions, oh let\'s get some garlic...Can\'t forget about milk!',
+  },
+  {
+    id: 18,
+    imageId: 'patience-young-microwaver',
+    name: 'Patience, young microwaver',
+    date: '03/10/19',
+    title: 'You don\'t want to know what happens if it gets to 0:00.',
   },
 ];
