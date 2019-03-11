@@ -122,6 +122,6 @@ export const posts = [
     imageId: 'patience-young-microwaver',
     name: 'Patience, young microwaver',
     date: '03/10/19',
-    title: 'You don\'t want to know what happens if it gets to 0:00.',
+    title: 'Does anybody know what happens if microwaves actually get to 0:00?',
   },
 ];
