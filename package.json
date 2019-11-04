@@ -4,6 +4,9 @@
   "description": "Webcomics about stuff and nonsense.",
   "author": "Tanner Marshall",
   "private": true,
+  "engines": {
+    "node": "10.15.1"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

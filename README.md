@@ -20,3 +20,9 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## Deploying
+The website's hosted on Heroku (free tier). To deploy changes to Heroku, use the following command:
+```
+git push heroku master
+```
