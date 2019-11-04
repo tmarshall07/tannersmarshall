@@ -13,10 +13,10 @@ export default {
   data () {
     return {
       navItems: [
-        { name: 'comics', link: '/comics', id: 1 },
-        { name: 'about', link: '/about', id: 2 },
-        { name: 'archive', link: '/archive', id: 3},
-        // { name: 'Videos', link: '/videos' },
+        { name: 'about', link: '/about', id: 1 },
+        { name: 'comics', link: '/comics', id: 2 },
+        { name: 'illustrations', link: '/illustrations', id: 3 },
+        { name: 'archive', link: '/archive', id: 4 },
       ],
     }
   },
@@ -38,7 +38,7 @@ export default {
     font-size: 24px;
 
     padding: 10px 15px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
 
     text-decoration: none;
 
@@ -47,11 +47,12 @@ export default {
     margin-right: 15px;
 
     &:hover, &.nuxt-link-active {
-      background: none;
+      border-bottom: 2px solid black;
+      /* background: none;
       background-image: url('/nav/nav-item-background.png');
       background-size: contain;
-      background-repeat: no-repeat;
-      color: white;
+      background-repeat: no-repeat; */
+      /* color: white; */
     }
   }
 }

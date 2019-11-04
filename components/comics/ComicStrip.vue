@@ -2,11 +2,11 @@
   .comic-strip-container
     .comic-strip(:title="post.title")
       .comic-strip-panel
-        img(:src="`/images/comics/${post.imageId}/1.jpg`")
+        img(:src="`${s3Url}/comics/${post.imageId}/1.jpg`")
       .comic-strip-panel
-        img(:src="`/images/comics/${post.imageId}/2.jpg`")
+        img(:src="`${s3Url}/comics/${post.imageId}/2.jpg`")
       .comic-strip-panel
-        img(:src="`/images/comics/${post.imageId}/3.jpg`")
+        img(:src="`${s3Url}/comics/${post.imageId}/3.jpg`")
 
 </template>
 
@@ -26,7 +26,7 @@ export default {
   },
   data () {
     return {
-
+      s3Url: 'https://tannersmarshall.s3.us-east-2.amazonaws.com',
     }
   },
 }
